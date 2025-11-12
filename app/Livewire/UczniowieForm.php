@@ -8,9 +8,9 @@ use App\Models\Oboz;
 
 class UczniowieForm extends Component
 {
-    public Oboz|null $oboz;
+    public ?Oboz $oboz = null;
 
-    public function mount(Oboz $oboz = null)
+    public function mount(?Oboz $oboz)
     {
         $this->oboz = $oboz;
     }
@@ -22,7 +22,7 @@ class UczniowieForm extends Component
     public $imie, $nazwisko, $pesel, $data_urodzenia, $email_dzielo, $email_prywatny, $telefon, $plec;
     public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc, $wojewodztwo, $diecezja;
     public $imie_matki, $nazwisko_matki, $nazwisko_rodowe_matki, $telefon_matki, $pesel_matki, $email_matki, $matka_zmarla, $imie_ojca, $nazwisko_ojca, $telefon_ojca, $pesel_ojca, $email_ojca, $ojciec_zmarl, $imie_opiekuna_prawnego, $nazwisko_opiekuna_prawnego, $telefon_opiekuna_prawnego, $pesel_opiekuna_prawnego, $email_opiekuna_prawnego, $prawa_rodzicielskie, $prawa_informacje;
-    public $szkola, $klasa;
+    public $szkola, $klasa, $oboz_id;
     public $zdrowie, $dieta, $jakaDieta, $dietaInfo;
     public $tshirt, $chor, $instrument, $uwagi, $tezec, $blonica, $inne_szczepienia, $data_przyjazdu, $data_wyjazdu;
     public $regulamin, $szpital, $informacje, $elektronika, $rodo, $wizerunek, $ochrona_maloletnich;
@@ -158,6 +158,7 @@ class UczniowieForm extends Component
         ]);
 
          $stypendysta->zgloszenia()->create([
+            'oboz_id' => $this->oboz->id,
             'zdrowie' => $this->zdrowie,
             'dieta' => $this->dieta,
             'jaka_dieta' => $this->jakaDieta,

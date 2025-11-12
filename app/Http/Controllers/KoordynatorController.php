@@ -48,7 +48,7 @@ class KoordynatorController extends Controller
             'role'     => 'koordynator',
         ]);
 
-        return redirect()->route('koordynatorzy.index')
+        return redirect()->route('biuro.koordynatorzy.index')
             ->with('success', 'Koordynator został dodany.');
     }
 
@@ -58,7 +58,7 @@ class KoordynatorController extends Controller
     public function edit($id)
     {
         $koordynator = User::where('role', 'koordynator')->findOrFail($id);
-        
+
         return view('biuro.koordynatorzy.edit', compact('koordynator'));
     }
 
@@ -90,7 +90,7 @@ class KoordynatorController extends Controller
 
         $koordynator->save();
 
-        return redirect()->route('koordynatorzy.index')
+        return redirect()->route('biuro.koordynatorzy.index')
             ->with('success', 'Dane koordynatora zostały zaktualizowane.');
     }
 
@@ -102,7 +102,7 @@ class KoordynatorController extends Controller
         $koordinator = User::where('role', 'koordynator')->findOrFail($id);
         $koordinator->delete();
 
-        return redirect()->route('koordynatorzy.inde')
+        return redirect()->route('biuro.koordynatorzy.index')
             ->with('success', 'Koordynator został usunięty.');
     }
 }

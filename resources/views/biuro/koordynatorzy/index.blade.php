@@ -75,12 +75,12 @@
 
 
      <!-- 🔥 MODAL  -->
-    <div id="deleteModal" class="fixed flex inset-0 items-center justify-center bg-black/40 hidden z-50">
+    <div id="deleteModal" class="fixed inset-0 items-center justify-center bg-black/40 hidden z-50">
 
         <div class="bg-white rounded-lg shadow-xl w-80 p-6">
 
             <h2 class="text-lg font-semibold text-slate-800 text-center">
-                Czy na pewno chcesz usunąć ten obóz?
+                Czy na pewno chcesz usunąć koordynatora?
             </h2>
 
             <p class="text-sm text-slate-600 mt-2 text-center">
@@ -113,6 +113,7 @@
            form.action = "{{ route('biuro.koordynatorzy.destroy', ':id') }}".replace(':id', id);
 
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
 
         function closeDeleteModal() {

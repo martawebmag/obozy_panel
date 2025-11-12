@@ -13,6 +13,7 @@ class Zgloszenia extends Model
 
     protected $fillable = [
         'stypendysta_id',
+        'oboz_id',
         'rok_obozu',
         'zdrowie',
         'dieta',

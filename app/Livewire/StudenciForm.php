@@ -9,9 +9,9 @@ use App\Models\Stypendysta;
 
 class StudenciForm extends Component
 {
-    public Oboz|null $oboz;
+    public ?Oboz $oboz = null;
 
-    public function mount(Oboz $oboz = null)
+    public function mount(?Oboz $oboz)
     {
         $this->oboz = $oboz;
     }
@@ -23,7 +23,7 @@ class StudenciForm extends Component
     public $imie, $nazwisko, $pesel, $data_urodzenia, $email_dzielo, $email_prywatny, $telefon, $plec, $wspolnota;
     public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc;
     public $imie_opiekuna, $nazwisko_opiekuna, $telefon_opiekuna;
-    public $rok_obozu, $zdrowie, $dieta, $jakaDieta, $dietaInfo;
+    public $oboz_id, $rok_obozu, $zdrowie, $dieta, $jakaDieta, $dietaInfo;
     public $obrona, $sesja, $koniecSesji, $tshirt, $chor, $instrument, $posluga, $medycyna, $uwagi;
     public $regulamin, $rodo, $wizerunek, $ochrona_maloletnich;
 
@@ -115,6 +115,7 @@ class StudenciForm extends Component
         ]);
 
         $stypendysta->zgloszenia()->create([
+            'oboz_id' => $this->oboz->id,
             'rok_obozu' => $this->rok_obozu,
             'zdrowie' => $this->zdrowie,
             'dieta' => $this->dieta,

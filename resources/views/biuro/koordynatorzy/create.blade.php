@@ -26,7 +26,7 @@
                 @endif
 
                 <!-- ✅ Formularz -->
-                <form method="POST" action="{{ route('koordynatorzy.store') }}">
+                <form method="POST" action="{{ route('biuro.koordynatorzy.store') }}">
                     @csrf
 
                     <!-- Imię -->
@@ -93,7 +93,7 @@
 
                     <!-- Przyciski -->
                     <div class="flex items-center justify-between">
-                        <a href="{{ route('koordynatorzy.index') }}"
+                        <a href="{{ route('biuro.koordynatorzy.index') }}"
                            class="px-4 py-2 text-slate-700 border border-slate-400 rounded-lg hover:bg-slate-200">
                             ⬅ Powrót
                         </a>

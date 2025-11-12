@@ -17,8 +17,7 @@
                 </a>
             </div>
             <!-- 🔹 LISTA OSTATNICH OBOZÓW -->
-            <div class="bg-white border border-slate-300 rounded-xl shadow p-6">
-
+            <div>
                 <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-2">
                     Ostatnie obozy
                 </h3>
@@ -161,7 +160,7 @@
 
 
     <!-- 🔥 MODAL  -->
-    <div id="deleteModal" class="fixed flex inset-0 items-center justify-center bg-black/40 hidden z-50">
+    <div id="deleteModal" class="fixed inset-0 items-center justify-center bg-black/40 hidden z-50">
 
         <div class="bg-white rounded-lg shadow-xl w-80 p-6">
 
@@ -199,6 +198,7 @@
             form.action = "/biuro/obozy/" + id; // route('biuro.obozy.destroy', oboz)
 
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
 
         function closeDeleteModal() {
