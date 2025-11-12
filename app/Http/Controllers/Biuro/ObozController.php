@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Biuro;
 
+use Carbon\Carbon;
 use App\Models\Oboz;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
 class ObozController extends Controller
 {

@@ -24,7 +24,7 @@
 
                 <div class="overflow-x-auto bg-white rounded-lg shadow border border-slate-200">
                     <table class="min-w-full divide-y divide-slate-200 text-sm text-left text-slate-700">
-                        <thead class="bg-slate-200">
+                        <thead class="bg-blue-100">
                             <tr>
                                 <th class="px-4 py-2 font-semibold text-slate-700">#</th>
                                 <th class="px-4 py-2 font-semibold text-slate-700">Rok obozu</th>
@@ -40,7 +40,7 @@
                             @forelse($obozy as $oboz)
                                 <tr
                                     class="hover:bg-slate-50 transition
-                    @if ($oboz->rok_obozu == date('Y')) bg-sky-50 @endif
+                    @if ($oboz->rok_obozu == date('Y')) bg-slate-100 @endif
                 ">
                                     <td class="px-4 py-2">
                                         {{ ($obozy->currentPage() - 1) * $obozy->perPage() + $loop->iteration }}

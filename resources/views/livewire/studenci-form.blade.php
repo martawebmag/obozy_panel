@@ -1,15 +1,15 @@
 <div class="flex flex-col min-h-screen bg-slate-100">
 
     <!-- 🧭 Pasek breadcrumb -->
-    <div class="bg-slate-300 border-b border-slate-300 shadow-sm">
+    <div class="bg-slate-400 border-b border-slate-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-slate-700 flex items-center space-x-2">
             <a href="{{ route('welcome') }}" class="hover:text-blue-800 flex items-center gap-1">
                 <i class="fas fa-house text-blue-800"></i>
                 Strona główna
             </a>
-            <span class="text-gray-400">››</span>
+            <span class="text-gray-600">››</span>
             <a href="{{ route('stypendysci.index') }}"><span class="text-slate-700">Stypendyści</span></a>
-            <span class="text-gray-400">››</span>
+            <span class="text-gray-600">››</span>
             <span class="font-medium text-blue-900">Formularz</span>
         </div>
     </div>

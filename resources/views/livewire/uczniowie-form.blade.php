@@ -1,15 +1,15 @@
 <div class="flex flex-col min-h-screen bg-slate-100">
 
     <!-- 🧭 Pasek breadcrumb -->
-    <div class="bg-slate-300 border-b border-slate-300 shadow-sm">
+    <div class="bg-slate-400 border-b border-slate-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-slate-700 flex items-center space-x-2">
             <a href="{{ route('welcome') }}" class="hover:text-blue-800 flex items-center gap-1">
                 <i class="fas fa-house text-blue-800"></i>
                 Strona główna
             </a>
-            <span class="text-gray-400">››</span>
+            <span class="text-gray-600">››</span>
             <a href="{{ route('stypendysci.index') }}"><span class="text-slate-700">Stypendyści</span></a>
-            <span class="text-gray-400">››</span>
+            <span class="text-gray-600">››</span>
             <span class="font-medium text-blue-900">Formularz</span>
         </div>
     </div>
@@ -114,7 +114,52 @@
                         <x-form.input-text name="poczta" label="Poczta" model="poczta" class="bg-white rounded shadow-sm"/>
                         <x-form.input-text name="miejscowosc" label="Miejscowość" model="miejscowosc" class="bg-white rounded shadow-sm"/>
                         <x-form.select name="wojewodztwo" label="Województwo" :options="[ 'dolnośląskie'=>'Dolnośląskie','kujawsko-pomorskie'=>'Kujawsko-Pomorskie','lubelskie'=>'Lubelskie','lubuskie'=>'Lubuskie','łódzkie'=>'Łódzkie','małopolskie'=>'Małopolskie','mazowieckie'=>'Mazowieckie']" model="wojewodztwo" class="bg-white rounded shadow-sm"/>
-                        <x-form.select name="diecezja" label="Diecezja" :options="['białostocka'=>'Białostocka','bielsko-żywiecka'=>'Bielsko-Żywiecka','bydgoska'=>'Bydgoska']" model="diecezja" class="bg-white rounded shadow-sm"/>
+                        <x-form.select name="diecezja" label="Diecezja"
+                        :options="[
+                            'białostocka'=>'białostocka',
+                            'bielsko-żywiecka'=>'bielsko-żywiecka',
+                            'bydgoska'=>'bydgoska',
+                            'częstochowska'=>'częstochowska',
+                            'drohiczyńska'=>'drohiczyńska',
+                            'elbląska'=>'elbląska',
+                            'ełcka'=>'ełcka',
+                            'gdańska'=>'gdańska',
+                            'gliwicka'=>'gliwicka',
+                            'gnieznieńska'=>'gnieźnieńska',
+                            'kaliska'=>'kaliska',
+                            'katowicka'=>'katowicka',
+                            'kielecka'=>'kielecka',
+                            'koszalińsko-kołobrzeska'=>'koszalińsko-kołobrzeska',
+                            'krakowska'=>'krakowska',
+                            'legnicka'=>'legnicka',
+                            'lubelska'=>'lubelska',
+                            'łomżyńska'=>'łomżyńska',
+                            'łowicka'=>'łowicka',
+                            'łódzka'=>'łódzka',
+                            'opolska'=>'opolska',
+                            'ordynariat polowy'=>'ordynariat polowy',
+                            'pelplińska'=>'pelplińska',
+                            'płocka'=>'płocka',
+                            'poznańska'=>'poznańska',
+                            'przemyska'=>'przemyska',
+                            'radomska'=>'radomska',
+                            'rzeszowska'=>'rzeszowska',
+                            'sandomierska'=>'sandomierska',
+                            'siedlecka'=>'siedlecka',
+                            'sosnowiecka'=>'sosnowiecka',
+                            'szczecińsko-kamieńska'=>'szczecińsko-kamieńska',
+                            'świdnicka'=>'świdnicka',
+                            'tarnowska'=>'tarnowska',
+                            'toruńska'=>'toruńska',
+                            'warmińska'=>'warmińska',
+                            'warszawska'=>'warszawska',
+                            'warszawsko-praska'=>'warszawsko-praska',
+                            'włocławska'=>'włocławska',
+                            'wrocławska'=>'wrocławska',
+                            'zamojsko-lubaczowska'=>'zamojsko-lubaczowska',
+                            'zielonogórsko-gorzowska'=>'zielonogórsko-gorzowska'
+                        ]"
+                            model="diecezja" class="bg-white rounded shadow-sm"/>
                     @elseif($step==3)
                         <x-form.input-text name="imie_matki" label="Imię matki" model="imie_matki" class="bg-white rounded shadow-sm"/>
                         <x-form.input-text name="nazwisko_matki" label="Nazwisko matki" model="nazwisko_matki" class="bg-white rounded shadow-sm"/>

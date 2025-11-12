@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-screen flex bg-gray-100 border-t-2 border-slate-300">
+    <div class="min-h-screen flex bg-gray-100">
 
         @include('biuro.sidebar')
 
         <!-- 🧾 GŁÓWNA ZAWARTOŚĆ -->
-        <main class="flex-1 p-10 bg-slate-50 shadow-inner border-l-2 border-slate-200">
+        <main class="flex-1 p-10 bg-slate-50">
 
             <!-- Nagłówek -->
             <h1 class="text-3xl font-bold text-slate-800 mb-6">

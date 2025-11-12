@@ -19,11 +19,27 @@ class Oboz extends Model
         'uczestnicy',
     ];
 
-
         public function zgloszenia()
         {
             return $this->hasMany(Zgloszenia::class, 'oboz_id');
         }
+
+        public function zgloszeniaUczniowie()
+        {
+            return $this->hasMany(Zgloszenia::class, 'oboz_id')
+                ->whereHas('stypendysta', function($q) {
+                    $q->where('typ_uczestnika', 'Uczen');
+                });
+        }
+
+        public function zgloszeniaStudenci()
+        {
+            return $this->hasMany(Zgloszenia::class, 'oboz_id')
+                ->whereHas('stypendysta', function($q) {
+                    $q->where('typ_uczestnika', 'Student');
+                });
+        }
+
 
         public function wolontariuszeZgloszenia()
         {

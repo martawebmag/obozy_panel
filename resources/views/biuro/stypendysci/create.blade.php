@@ -11,7 +11,7 @@
             <div class="max-w-xl bg-white shadow-md border border-slate-200 rounded-xl p-8">
 
                 <h2 class="text-2xl font-bold text-slate-800 mb-6">
-                    ➕ Dodaj Koordynatora
+                    ➕ Dodaj Stypendystę
                 </h2>
 
                 <!-- ✅ Błędy walidacji -->
@@ -26,7 +26,7 @@
                 @endif
 
                 <!-- ✅ Formularz -->
-                <form method="POST" action="{{ route('biuro.koordynatorzy.store') }}">
+                <form method="POST" action="{{ route('biuro.stypendysci.store') }}">
                     @csrf
 
                     <!-- Imię -->
@@ -81,13 +81,13 @@
 
                     <!-- Przyciski -->
                     <div class="flex items-center justify-between">
-                        <a href="{{ route('biuro.koordynatorzy.index') }}"
+                        <a href="{{ route('biuro.stypendysci.index') }}"
                            class="px-4 py-2 text-slate-700 border border-slate-400 rounded-lg hover:bg-slate-200">
                             ⬅ Powrót
                         </a>
 
                     <button class="bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded">
-                        Zapisz i wyślij zaproszenie
+                        Dodaj
                     </button>
                     </div>
 

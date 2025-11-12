@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Biuro;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class KoordynatorController extends Controller
 {
@@ -31,26 +35,34 @@ class KoordynatorController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
+
         $request->validate([
             'name'     => 'required|string|max:255',
             'surname'  => 'required|string|max:255',
             'diocese' => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
         ]);
 
-        User::create([
+         // wygeneruj tymczasowe hasło
+        $tempPassword = Str::random(12);
+
+        $user = User::create([
             'name'     => $request->name,
             'surname'  => $request->surname,
-            'diocese' => $request->diocese,
+            'diocese'  => $request->diocese,
             'email'    => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($tempPassword),
             'role'     => 'koordynator',
         ]);
+        // Wyślij email do ustawienia hasła
+        Password::sendResetLink(['email' => $user->email]);
 
-        return redirect()->route('biuro.koordynatorzy.index')
-            ->with('success', 'Koordynator został dodany.');
-    }
+        return redirect()
+            ->route('biuro.koordynatorzy.index')
+            ->with('success', 'Zaproszenie wysłane. Koordynator otrzyma email z linkiem do ustawienia hasła.');
+        }
+
 
     /**
      * Formularz edycji
@@ -99,8 +111,8 @@ class KoordynatorController extends Controller
      */
     public function destroy($id)
     {
-        $koordinator = User::where('role', 'koordynator')->findOrFail($id);
-        $koordinator->delete();
+        $koordynator = User::where('role', 'koordynator')->findOrFail($id);
+        $koordynator->delete();
 
         return redirect()->route('biuro.koordynatorzy.index')
             ->with('success', 'Koordynator został usunięty.');

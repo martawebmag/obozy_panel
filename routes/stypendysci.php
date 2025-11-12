@@ -4,28 +4,8 @@ use App\Models\Oboz;
 use Illuminate\Support\Facades\Route;
 
 
-// ======================================================
 // ✅ Funkcja zwracająca obozy wg roku
-// ======================================================
-function getObozy()
-{
-    return [
-        'obozUczniowie' => Oboz::where('uczestnicy', 'Uczniowie')
-            ->where('rok_obozu', 2025)
-            ->orderByDesc('start_date')
-            ->first(),
-
-        'obozMaturzysci' => Oboz::where('uczestnicy', 'Maturzyści')
-            ->where('rok_obozu', 2025)
-            ->orderByDesc('start_date')
-            ->first(),
-
-        'obozStudenci' => Oboz::where('uczestnicy', 'Studenci')
-            ->where('rok_obozu', 2025)
-            ->orderByDesc('start_date')
-            ->first(),
-    ];
-}
+require_once app_path('Helpers/ObozyHelper.php');
 
 
 Route::prefix('stypendysci')->name('stypendysci.')->group(function () {

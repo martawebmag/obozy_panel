@@ -23,7 +23,7 @@
     <div class="overflow-x-auto">
         <table class="w-full max-w-5xl text-sm border-separate border-spacing-y-1">
             <thead class="text-slate-700 font-semibold border-b border-slate-300">
-                <tr class="bg-slate-200">
+                <tr class="bg-slate-300">
                     <th class="text-left px-4 py-3">Obóz</th>
                     <th class="text-left px-4 py-3">Data</th>
                     <th class="text-left px-4 py-3">Miejsce</th>
@@ -35,20 +35,31 @@
             <tbody>
                 <!-- Obóz uczniów -->
                 <tr class="bg-white hover:bg-blue-50 transition">
-                    <td class="px-4 py-3 font-medium text-blue-600 flex items-center gap-2">
+                    <td class="px-4 py-3 font-medium text-blue-700 flex items-center gap-2">
                         Obóz uczniów
                     </td>
-                    <td class="px-4 py-3 text-slate-700">
-                        <span class="font-semibold">11–24 lipiec 2025</span>
-                    </td>
-                    <td class="px-4 py-3 text-slate-700">
-                        Archidiecezja Częstochowska
-                    </td>
-                    <td class="px-4 py-3 text-slate-700">
-                        <span class="font-semibold">100</span>
-                    </td>
+                    @if(isset($obozUczniowie))
+                        <td class="px-4 py-3 text-slate-700">
+                            <span class="font-semibold">
+                                {{ \Carbon\Carbon::parse($obozUczniowie->start_date)->translatedFormat('d F') }}
+                                –
+                                {{ \Carbon\Carbon::parse($obozUczniowie->end_date)->translatedFormat('d F Y') }}
+                            </span>
+                        </td>
+                        <td class="px-4 py-3 text-slate-700">
+                            {{ $obozUczniowie->miejsce }}
+                        </td>
+                        <td class="px-4 py-3 text-slate-700">
+                            @if(isset($liczbaUczniow))
+                                <span class="font-semibold">{{ $liczbaUczniow }}</span>
+                            @endif
+                        </td>
+                    @else
+                        <td colspan="3" class="text-sm text-slate-400">Brak informacji o obozie</td>
+                    @endif
+
                     <td class="px-4 py-3">
-                        <form action="#" method="GET">
+                        <form action="{{ route('koordynatorzy.uczniowie.raport') }}" method="GET">
                             @csrf
                             <button
                                 class="px-4 py-2 font-medium border text-emerald-600 border-emerald-600 rounded-md hover:bg-emerald-600 hover:text-white transition flex items-center gap-2">
@@ -60,20 +71,30 @@
 
                 <!-- Obóz studentów -->
                 <tr class="bg-white hover:bg-blue-50 transition">
-                    <td class="px-4 py-3 font-medium text-blue-600 flex items-center gap-2">
+                    <td class="px-4 py-3 font-medium text-blue-700 flex items-center gap-2">
                         Obóz studentów
                     </td>
+                     @if(isset($obozStudenci))
                     <td class="px-4 py-3 text-slate-700">
-                        <span class="font-semibold">1–14 sierpień 2025</span>
+                        <span class="font-semibold">
+                        {{ \Carbon\Carbon::parse($obozStudenci->start_date)->translatedFormat('d F') }}
+                    –
+                        {{ \Carbon\Carbon::parse($obozStudenci->end_date)->translatedFormat('d F Y') }}
+                        </span>
                     </td>
                     <td class="px-4 py-3 text-slate-700">
-                        Kraków, Centrum Akademickie
+                            {{ $obozStudenci->miejsce }}
+                    @else
+                        <span class="text-sm text-slate-400">Brak informacji o obozie</span>
+                    @endif
                     </td>
                     <td class="px-4 py-3 text-slate-700">
-                        <span class="font-semibold">75</span>
+                            @if(isset($liczbaStudentow))
+                                <span class="font-semibold">{{ $liczbaStudentow }}</span>
+                            @endif
                     </td>
                     <td class="px-4 py-3">
-                        <form action="#" method="GET">
+                        <form action="{{ route('koordynatorzy.studenci.raport') }}" method="GET">
                             @csrf
                             <button
                                 class="px-4 py-2 font-medium border border-emerald-600 text-emerald-600 rounded-md hover:bg-emerald-600 hover:text-white transition flex items-center gap-2">

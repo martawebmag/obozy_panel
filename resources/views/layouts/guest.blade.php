@@ -13,14 +13,14 @@
 <body class="min-h-screen flex flex-col bg-gray-100">
 
     {{-- NAV --}}
-    <nav class="bg-white border-b shadow-sm">
+    <nav class="bg-slate-300 border-b border-slate-400/20">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
             {{-- Logo + nazwa --}}
             <a href="/" class="flex items-center space-x-4">
                 <img src="{{ asset('images/logoFDNT.png') }}" alt="logo"
                     class="w-16 h-16">
-                <span class="text-xl font-bold text-blue-900 tracking-tight">
+                <span class="text-xl font-bold text-slate-800 tracking-tight">
                     Fundacja „Dzieło Nowego Tysiąclecia”
                 </span>
             </a>

@@ -36,12 +36,22 @@
             <span class="font-semibold">{{ $wolontariusze->count() }}</span>
         </div>
 </form>
+        <div class="flex flex-row mb-8">
+            <form action="#" method="GET">
+                @csrf
+                <button
+                    class="px-4 py-1 font-medium border border-emerald-600 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center">
+                    <i class="fa-solid fa-download mr-2"></i>Pobierz raport (xls)
+                </button>
+            </form>
+        </div>
+
 
     <!-- Tabela wolontariuszy -->
     <div class="overflow-x-auto bg-white rounded-lg shadow border border-slate-200">
 
         <table class="min-w-full divide-y divide-slate-200">
-            <thead class="bg-slate-200">
+            <thead class="bg-blue-100">
                 <tr>
                     <th class="px-4 py-2 text-left text-sm font-semibold text-slate-700">L.p.</th>
                     <th class="px-4 py-2 text-left text-sm font-semibold text-slate-700">Imię</th>

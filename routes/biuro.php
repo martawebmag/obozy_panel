@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ObozController;
-use App\Http\Controllers\KoordynatorController;
-use App\Http\Controllers\WolontariuszController;
-
+use App\Http\Controllers\Biuro\ObozController;
+use App\Http\Controllers\Biuro\StypendystaController;
+use App\Http\Controllers\Biuro\KoordynatorController;
+use App\Http\Controllers\Biuro\WolontariuszController;
 
 Route::middleware(['auth', 'role:biuro'])->prefix('biuro')->name('biuro.')->group(function () {
 
     Route::view('/', 'biuro.index')->name('index');
 
+    // Stypendyści
     Route::view('/stypendysci', 'biuro.stypendysci.index')
         ->name('stypendysci.index');
 
+    Route::resource('stypendysci', StypendystaController::class);
 
     // Wolontariusze
     Route::resource('wolontariusze', WolontariuszController::class)

@@ -21,7 +21,7 @@
             <!-- 🔹 Tabela koordynatorów -->
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-slate-200">
                 <table class="min-w-full divide-y divide-slate-200">
-                    <thead class="bg-slate-200">
+                    <thead class="bg-blue-100">
                         <tr>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-slate-700">#</th>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-slate-700">Imię</th>
