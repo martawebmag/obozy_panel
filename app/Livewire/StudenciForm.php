@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Oboz;
-use App\Models\Obozy;
 use Livewire\Component;
 use App\Models\Stypendysta;
 
@@ -36,7 +35,7 @@ class StudenciForm extends Component
         'email_dzielo' => 'nullable|email',
         'email_prywatny' => 'nullable|email',
         'telefon' => 'nullable|string|max:20',
-        'plec' => 'nullable|in:Kobieta,Mężczyzna',
+        'plec' => 'nullable|string|max:100',
         'wspolnota' => 'nullable|string|max:100',
 
         // Krok 2: adres

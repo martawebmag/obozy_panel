@@ -36,7 +36,7 @@ class UczniowieForm extends Component
         'email_dzielo' => 'nullable|email',
         'email_prywatny' => 'nullable|email',
         'telefon' => 'nullable|string|max:20',
-        'plec' => 'nullable|in:Kobieta,Mężczyzna',
+        'plec' => 'nullable|string|max:100',
 
         // Krok 2: adres
         'ulica' => 'required|string|max:255',

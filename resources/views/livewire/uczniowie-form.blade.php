@@ -105,7 +105,7 @@
                         <x-form.input-text name="email_dzielo" label="Email (dzielo.pl)" model="email_dzielo" class="bg-white rounded shadow-sm"/>
                         <x-form.input-text name="email_prywatny" label="Email (prywatny)" model="email_prywatny" class="bg-white rounded shadow-sm"/>
                         <x-form.input-text name="telefon" label="Telefon" model="telefon" class="bg-white rounded shadow-sm"/>
-                        <x-form.select name="plec" label="Płeć" :options="['Kobieta'=>'Kobieta','Mężczyzna'=>'Mężczyzna']" model="plec" class="bg-white rounded shadow-sm"/>
+                       <x-form.select name="plec" label="Płeć" :options="['Kobieta' => 'Kobieta', 'Mężczyzna' => 'Mężczyzna']" model="plec"/>
                     @elseif($step==2)
                         <x-form.input-text name="ulica" label="Ulica" model="ulica" class="bg-white rounded shadow-sm"/>
                         <x-form.input-text name="nr_domu" label="Nr domu" model="nr_domu" class="bg-white rounded shadow-sm"/>
