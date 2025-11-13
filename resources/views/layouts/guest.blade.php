@@ -13,7 +13,7 @@
 <body class="min-h-screen flex flex-col bg-gray-100">
 
     {{-- NAV --}}
-    <nav class="bg-slate-300 border-b border-slate-400/20">
+    <nav class="bg-slate-200 border-b border-slate-400/20">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
             {{-- Logo + nazwa --}}
