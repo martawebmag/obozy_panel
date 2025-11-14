@@ -32,7 +32,7 @@
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-24">Imię</th>
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">Nazwisko</th>
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">PESEL</th>
-                <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">Diecezja</th>
+                <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">Wspólnota</th>
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">Ulica</th>
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-28">Miejscowość</th>
                 <th class="px-2 py-1 text-left font-medium text-slate-700 w-36"></th>
@@ -47,12 +47,12 @@
                     <td class="px-2 py-1 truncate">{{ $student->imie }}</td>
                     <td class="px-2 py-1 truncate">{{ $student->nazwisko }}</td>
                     <td class="px-2 py-1 truncate">{{ $student->pesel }}</td>
-                    <td class="px-2 py-1 truncate">{{ $student->diecezja }}</td>
+                    <td class="px-2 py-1 truncate">{{ $student->wspolnota }}</td>
                     <td class="px-2 py-1 truncate">{{ $student->ulica }}</td>
                     <td class="px-2 py-1 truncate">{{ $student->miejscowosc }}</td>
 
                     <td class="px-2 py-1 flex space-x-1 text-xs">
-                        <a href="{{ route('biuro.stypendysci.edit', $student->id) }}"
+                        <a href="{{ route('biuro.studenci.edit', $student->id) }}"
                             class="flex items-center text-blue-600 border border-blue-200 px-2 py-0.5 rounded hover:bg-blue-50 truncate mr-4">
                             <i class="fa-solid fa-pen mr-1 text-xs"></i> Edytuj
                         </a>

@@ -4,9 +4,10 @@
     'value' => 1,    // Wartość checkboxa
     'checked' => false, // Domyślnie zaznaczony czy nie
     'model' => '',
+    'required' =>false,
 ])
 
-<div class="mb-2 flex items-center">
+<div class="mb-1 flex items-center">
     <input
         type="checkbox"
         name="{{ $name }}"
@@ -19,10 +20,14 @@
     @if($label)
         <label for="{{ $name }}" class="ml-2 block text-slate-700 text-xs">
             {{ $label }}
+        @if($required)
+            <span class="text-red-500">*</span>
+        @endif
+        </label>
         </label>
     @endif
 </div>
 
 @error($name)
-    <p class="text-red-500 text-xs mt-1 ml-6">{{ $message }}</p>
+    <p class="text-red-500 text-[14px] ml-6">{{ $message }}</p>
 @enderror

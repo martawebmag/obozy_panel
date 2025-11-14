@@ -5,12 +5,17 @@
     'value' => '',       // Wartość domyślna
     'placeholder' => '', // Placeholder (opcjonalny pierwszy element)
     'model' => '',
+    'required' => false,
 ])
 
 <div class="mb-2 w-full">
     @if($label)
-        <label for="{{ $name }}" class="block text-slate-700 text-xs mb-1">
+        <label for="{{ $name }}" class="block text-black text-xs mb-1 ml-1">
             {{ $label }}
+
+            @if($required)
+                <span class="text-red-500">*</span>
+            @endif
         </label>
     @endif
 
@@ -33,6 +38,6 @@
     </select>
 
     @error($name)
-        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        <p class="text-red-500 text-[14px] mt-1">{{ $message }}</p>
     @enderror
 </div>

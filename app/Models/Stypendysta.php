@@ -30,7 +30,7 @@ class Stypendysta extends Model
         'miejscowosc',
         'wojewodztwo',
         'diecezja',
-        'wpolnota_akademicka',
+        'wspolnota',
 
         'imie_matki',
         'nazwisko_matki',

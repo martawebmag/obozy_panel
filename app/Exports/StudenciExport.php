@@ -39,7 +39,6 @@ class StudenciExport implements FromCollection, WithHeadings, WithStyles, Should
                 'zgloszenia.instrument',
                 'obozy.uczestnicy',
                 'obozy.miejsce',
-                'zgloszenia.rok_obozu'
             )
             ->get();
 
@@ -58,7 +57,6 @@ class StudenciExport implements FromCollection, WithHeadings, WithStyles, Should
                 'Instrument' => $item->instrument,
                 'Uczestnicy obozu' => $item->uczestnicy,
                 'Miejsce obozu' => $item->miejsce,
-                'Rok Obozu' => $item->rok_obozu,
             ];
         });
 
@@ -80,7 +78,6 @@ class StudenciExport implements FromCollection, WithHeadings, WithStyles, Should
             'Instrument',
             'Uczestnicy obozu',
             'Miejsce obozu',
-            'Rok Obozu'
         ];
     }
 

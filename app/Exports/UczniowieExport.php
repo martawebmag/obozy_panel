@@ -41,7 +41,6 @@ class UczniowieExport implements FromCollection, WithHeadings, WithStyles, Shoul
                 'zgloszenia.instrument',
                 'obozy.uczestnicy',
                 'obozy.miejsce',
-                'zgloszenia.rok_obozu'
             )
             ->get();
 
@@ -60,7 +59,6 @@ class UczniowieExport implements FromCollection, WithHeadings, WithStyles, Shoul
                 'Instrument' => $item->instrument,
                 'Uczestnicy obozu' => $item->uczestnicy,
                 'Miejsce obozu' => $item->miejsce,
-                'Rok Obozu' => $item->rok_obozu,
             ];
         });
 
@@ -82,7 +80,6 @@ class UczniowieExport implements FromCollection, WithHeadings, WithStyles, Shoul
             'Instrument',
             'Uczestnicy obozu',
             'Miejsce obozu',
-            'Rok Obozu'
         ];
     }
 
