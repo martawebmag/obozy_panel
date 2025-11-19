@@ -8,26 +8,21 @@ use App\Models\Stypendysta;
 
 class StudenciForm extends Component
 {
+    public $step = 1;
+
     public ?Oboz $oboz = null;
 
     public function mount(?Oboz $oboz)
     {
+        if (!$oboz) abort(404);
         $this->oboz = $oboz;
     }
 
-    public function goToStep($step)
-    {
-        $this->step = $step;
-    }
-
-
-   public $step = 1;
-
-    // 🔹 Dane formularza
+    // 🔹 Pola formularza
     public $imie, $nazwisko, $pesel, $data_urodzenia, $email_dzielo, $email_prywatny, $telefon, $plec, $wspolnota;
-    public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc;
+    public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc, $diecezja;
     public $imie_opiekuna, $nazwisko_opiekuna, $telefon_opiekuna;
-    public $oboz_id, $zdrowie, $dieta, $jaka_dieta, $dieta_info;
+    public $zdrowie, $dieta, $jaka_dieta, $dieta_info;
     public $obrona, $sesja, $koniecSesji, $tshirt, $chor, $instrument, $posluga, $medycyna, $uwagi;
     public $regulamin, $rodo, $wizerunek, $ochrona_maloletnich;
 
@@ -36,9 +31,9 @@ class StudenciForm extends Component
         'imie' => 'required|string|max:255',
         'nazwisko' => 'required|string|max:255',
         'pesel' => 'required|digits:11',
-        'data_urodzenia' => 'required|nullable|date',
-        'email_dzielo' => 'required|nullable|email',
-        'email_prywatny' => 'required|nullable|email',
+        'data_urodzenia' => 'required|date',
+        'email_dzielo' => 'required|email',
+        'email_prywatny' => 'required|email',
         'telefon' => 'required|string|max:20',
         'plec' => 'required|string|max:100',
         'wspolnota' => 'required|string|max:100',
@@ -50,6 +45,7 @@ class StudenciForm extends Component
         'kod_pocztowy' => 'required|string|max:10',
         'poczta' => 'required|string|max:100',
         'miejscowosc' => 'required|string|max:100',
+        'diecezja' => 'required|string|max:255',
 
         // Krok 3: opiekun
         'imie_opiekuna' => 'required|string|max:255',
@@ -80,15 +76,25 @@ class StudenciForm extends Component
         'ochrona_maloletnich' => 'accepted',
     ];
 
+    public function goToStep($step)
+    {
+        $this->step = $step;
+    }
+
     public function nextStep()
     {
         $this->validate($this->getStepRules());
-        if ($this->step < 6) $this->step++;
+
+        if ($this->step < 6) {
+            $this->step++;
+        }
     }
 
     public function prevStep()
     {
-        if ($this->step > 1) $this->step--;
+        if ($this->step > 1) {
+            $this->step--;
+        }
     }
 
     public function submit()
@@ -112,6 +118,7 @@ class StudenciForm extends Component
             'kod_pocztowy' => $this->kod_pocztowy,
             'poczta' => $this->poczta,
             'miejscowosc' => $this->miejscowosc,
+            'diecezja' => $this->diecezja,
             'imie_opiekuna' => $this->imie_opiekuna,
             'nazwisko_opiekuna' => $this->nazwisko_opiekuna,
             'telefon_opiekuna' => $this->telefon_opiekuna,
@@ -135,7 +142,7 @@ class StudenciForm extends Component
             'regulamin' => $this->regulamin,
             'rodo' => $this->rodo,
             'wizerunek' => $this->wizerunek,
-            'ochrona_maloletnich' => $this->ochrona_maloletnich
+            'ochrona_maloletnich' => $this->ochrona_maloletnich,
         ]);
 
         session()->flash('success', 'Formularz został wysłany!');
@@ -147,27 +154,26 @@ class StudenciForm extends Component
     {
         $this->reset([
             'imie','nazwisko','pesel','data_urodzenia','email_dzielo','email_prywatny','telefon','plec', 'wspolnota',
-            'ulica','nr_domu','nr_mieszkania','kod_pocztowy','poczta','miejscowosc',
-            'imie_opiekuna','nazwisko_opiekuna','telefon_opiekuna', 'zdrowie','dieta','jaka_dieta', 'dieta_info','obrona', 'sesja', 'koniecSesji', 'tshirt', 'chor', 'instrument', 'posluga', 'medycyna', 'uwagi', 'regulamin', 'rodo', 'wizerunek', 'ochrona_maloletnich'
+            'ulica','nr_domu','nr_mieszkania','kod_pocztowy','poczta','miejscowosc', 'diecezja',
+            'imie_opiekuna','nazwisko_opiekuna','telefon_opiekuna',
+            'zdrowie','dieta','jaka_dieta','dieta_info','obrona','sesja','koniecSesji',
+            'tshirt','chor','instrument','posluga','medycyna','uwagi',
+            'regulamin','rodo','wizerunek','ochrona_maloletnich'
         ]);
     }
 
     private function getStepRules()
     {
-        switch($this->step){
-            case 1:
-                return array_intersect_key($this->rules, array_flip(['imie','nazwisko','pesel','data_urodzenia','email_dzielo','email_prywatny','telefon','plec', 'wspolnota']));
-            case 2:
-                return array_intersect_key($this->rules, array_flip(['ulica','nr_domu','nr_mieszkania','kod_pocztowy','poczta','miejscowosc']));
-            case 3:
-                return array_intersect_key($this->rules, array_flip(['imie_opiekuna','nazwisko_opiekuna','telefon_opiekuna']));
-            case 4:
-                return array_intersect_key($this->rules, array_flip(['zdrowie','dieta','jaka_dieta', 'dieta_info']));
-            case 5:
-                return array_intersect_key($this->rules, array_flip(['obrona', 'sesja', 'koniecSesji', 'tshirt', 'chor', 'instrument', 'posluga', 'medycyna', 'uwagi']));
-            case 6:
-                return array_intersect_key($this->rules, array_flip(['regulamin', 'rodo', 'wizerunek', 'ochrona_maloletnich']) );
-        }
+        $fieldsByStep = [
+            1 => ['imie','nazwisko','pesel','data_urodzenia','email_dzielo','email_prywatny','telefon','plec','wspolnota'],
+            2 => ['ulica','nr_domu','nr_mieszkania','kod_pocztowy','poczta','miejscowosc', 'diecezja'],
+            3 => ['imie_opiekuna','nazwisko_opiekuna','telefon_opiekuna'],
+            4 => ['zdrowie','dieta','jaka_dieta','dieta_info'],
+            5 => ['obrona','sesja','koniecSesji','tshirt','chor','instrument','posluga','medycyna','uwagi'],
+            6 => ['regulamin','rodo','wizerunek','ochrona_maloletnich'],
+        ];
+
+        return array_intersect_key($this->rules, array_flip($fieldsByStep[$this->step]));
     }
 
     public function render()

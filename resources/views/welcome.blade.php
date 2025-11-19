@@ -8,14 +8,14 @@
     <section class="max-w-7xl mx-auto px-8 py-12 md:py-24 flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-1/2">
             <h1 class="text-4xl md:text-5xl font-bold text-blue-950 leading-tight mb-6">
-                <span class="text-blue-800 bg-clip-text bg-linear-to-r from-blue-700 to-gray-600">Zapisz się</span>
+                <span class="text-sky-600 bg-clip-text bg-linear-to-r from-sky-400 to-gray-600">Zapisz się</span>
                 na wakacyjny obóz FDNT
             </h1>
             <p class="text-gray-700 mb-8 text-lg leading-relaxed">
                 Dołącz do wspólnoty stypendystów. Rozwijaj się, inspiruj i przeżyj niezapomniane chwile w duchu Jana Pawła II.
             </p>
             <a href="{{ route('stypendysci.index') }}"
-               class="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:scale-103 transition mb-4">
+               class="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-sky-800 to-sky-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:scale-103 transition mb-4">
                 <i class="fas fa-clipboard-check"></i> Stypendyści - Formularz zapisów
             </a>
             <br>
@@ -40,7 +40,7 @@
 
     <!-- 💎 Sekcja DLACZEGO WARTO -->
     <section class="max-w-7xl mx-auto px-8 py-20 bg-white border-y border-slate-200">
-        <h2 class="text-3xl font-bold text-blue-950 text-center mb-12">Dlaczego warto uczestniczyć?</h2>
+        <h2 class="text-3xl font-bold text-sky-950 text-center mb-12">Dlaczego warto uczestniczyć?</h2>
         <div class="grid md:grid-cols-3 gap-10">
             @php
                 $cards = [
@@ -52,8 +52,8 @@
 
             @foreach($cards as $card)
                 <div class="group bg-slate-50 border border-slate-200 rounded-2xl p-10 shadow-sm hover:shadow-md transition transform hover:-translate-y-1 hover:bg-linear-to-br from-gray-50 to-blue-50">
-                    <i class="fas {{ $card['icon'] }} text-5xl text-blue-800 mb-6 group-hover:text-amber-500 transition"></i>
-                    <h3 class="text-xl font-semibold text-blue-950 mb-3">{{ $card['title'] }}</h3>
+                    <i class="fas {{ $card['icon'] }} text-5xl text-sky-600 mb-6 group-hover:text-amber-500 transition"></i>
+                    <h3 class="text-xl font-semibold text-sky-950 mb-3">{{ $card['title'] }}</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">{{ $card['text'] }}</p>
                 </div>
             @endforeach
@@ -63,12 +63,13 @@
     <!-- ✨ Cytat -->
     <section class="max-w-5xl mx-auto px-8 p-16 text-center">
         <div class="bg-white border border-gray-200 rounded-2xl py-12 shadow-md">
-            <blockquote class="text-xl md:text-2xl font-medium text-blue-950 italic">
+            <blockquote class="text-xl md:text-2xl font-medium text-sky-950 italic">
                 „Człowiek jest wielki nie przez to, co posiada, lecz przez to, kim jest.”
             </blockquote>
             <p class="mt-4 text-gray-500 text-sm uppercase tracking-widest">– św. Jan Paweł II</p>
         </div>
     </section>
+
 </div>
 @endsection
 

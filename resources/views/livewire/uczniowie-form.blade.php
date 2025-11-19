@@ -3,31 +3,31 @@
     <!-- 🧭 Pasek breadcrumb -->
     <div class="bg-slate-400 border-b border-slate-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-slate-700 flex items-center space-x-2">
-            <a href="{{ route('welcome') }}" class="hover:text-blue-800 flex items-center gap-1">
-                <i class="fas fa-house text-blue-800"></i>
+            <a href="{{ route('welcome') }}" class="hover:text-sky-800 flex items-center gap-1">
+                <i class="fas fa-house text-sky-800"></i>
                 Strona główna
             </a>
             <span class="text-gray-600">››</span>
             <a href="{{ route('stypendysci.index') }}"><span class="text-slate-700">Stypendyści</span></a>
             <span class="text-gray-600">››</span>
-            <span class="font-medium text-blue-900">Formularz</span>
+            <span class="font-medium text-sky-900">Formularz</span>
         </div>
     </div>
 
 
 <!-- 🔹 Nagłówek obozu (połączony wizualnie z formularzem) -->
 <div class="max-w-6xl mx-auto mt-6 px-4 py-2 text-center">
-    <h3 class="text-2xl md:text-3xl font-bold text-blue-900 tracking-tight flex items-center justify-center gap-3">
+    <h3 class="text-2xl md:text-3xl font-bold text-sky-600 tracking-tight flex items-center justify-center gap-3">
         <i class="fas fa-campground text-yellow-500"></i>
         Obóz dla uczniów
     </h3>
     <p class="mt-4 text-gray-700 text-base md:text-md font-semibold">
         @if($oboz)
-            <span class="text-blue-800">Termin:</span> {{ \Carbon\Carbon::parse($oboz->start_date)->translatedFormat('d F') }}
+            <span class="text-sky-600">Termin:</span> {{ \Carbon\Carbon::parse($oboz->start_date)->translatedFormat('d F') }}
                     –
                     {{ \Carbon\Carbon::parse($oboz->end_date)->translatedFormat('d F Y') }}
             &nbsp;|&nbsp;
-            <span class="text-blue-800">Miejsce:</span> {{ $oboz->miejsce }}
+            <span class="text-sky-600">Miejsce:</span> {{ $oboz->miejsce }}
         @endif
     </p>
 </div>
@@ -44,17 +44,17 @@
                 <!-- Desktop: pionowo -->
                 <div class="hidden md:flex relative flex-col items-center w-full">
                     <div class="absolute top-5 bottom-5 left-1/2 w-1 bg-slate-300 -z-10"></div>
-                    <div class="absolute top-5 left-1/2 w-1 bg-blue-800 -z-10 transition-all duration-500"
+                    <div class="absolute top-5 left-1/2 w-1 bg-sky-700 -z-10 transition-all duration-500"
                          style="height: calc(({{ $step - 1 }}/{{ count($titles)-1}}*100%))"></div>
 
                     @foreach($titles as $index => $title)
                         <div class="flex flex-col items-center relative z-10 mb-6">
                             <div class="w-5 h-5 flex items-center justify-center rounded-full p-3
-                                        {{ $step > $index ? 'bg-blue-800 text-white' : 'bg-slate-200 text-slate-500' }}
+                                        {{ $step > $index ? 'bg-sky-600 text-white' : 'bg-slate-200 text-slate-500' }}
                                         font-medium text-xs transition-all duration-300">
                                 {{ $index + 1 }}
                             </div>
-                            <div class="mt-2 text-xs text-center {{ $step == $index+1 ? 'text-blue-800 font-semibold' : 'text-slate-500' }}">
+                            <div class="mt-2 text-xs text-center {{ $step == $index+1 ? 'text-sky-600 font-semibold' : 'text-slate-500' }}">
                                 {{ $title }}
                             </div>
                         </div>
@@ -64,13 +64,13 @@
                 <!-- Mobile: poziomo -->
                 <div class="flex md:hidden w-full justify-between relative">
                     <div class="absolute top-1/2 left-0 right-0 h-1 bg-slate-400 -z-10"></div>
-                    <div class="absolute top-1/2 left-0 h-1 bg-blue-800 -z-10 transition-all duration-500"
+                    <div class="absolute top-1/2 left-0 h-1 bg-sky-700 -z-10 transition-all duration-500"
                          style="width: calc(({{ $step - 1 }}/{{ count($titles)-1}}*100%))"></div>
 
                     @foreach($titles as $index => $title)
                         <div class="flex flex-col items-center z-10">
                             <div class="w-5 h-5 flex items-center justify-center rounded-full p-3
-                                    {{ $step > $index ? 'bg-blue-800 text-white' : 'bg-slate-200 text-slate-500' }}
+                                    {{ $step > $index ? 'bg-sky-700 text-white' : 'bg-slate-200 text-slate-500' }}
                                     font-medium text-xs transition-all duration-300">
                             {{ $index + 1 }}
                             </div>
@@ -89,10 +89,10 @@
                 @endif
 
                 <div class="mb-6">
-                    <h2 class="text-md md:text-lg text-blue-900 text-center md:text-left font-semibold">
+                    <h2 class="text-md md:text-lg text-sky-800 text-center md:text-left font-semibold">
                         {{ $titles[$step-1] }}
                     </h2>
-                    <div class="mt-1 h-0.5 bg-blue-900 w-full rounded-full"></div>
+                    <div class="mt-1 h-0.5 bg-sky-800 w-full rounded-full"></div>
                 </div>
 
 
@@ -213,12 +213,18 @@
 
                 <div class="flex justify-between mt-6">
                     @if($step>1)
-                        <button type="button" wire:click="prevStep" class="px-6 py-2 bg-gray-300 rounded hover:bg-gray-400 transition">Wstecz</button>
+                        <x-form.button-step variant="prev" type="button" wire:click="prevStep">
+                            Wstecz
+                        </x-form.button-step>
                     @endif
                     @if($step<7)
-                        <button type="button" wire:click="nextStep" class="px-6 py-2 bg-blue-800 text-white rounded hover:bg-blue-900 transition">Dalej</button>
+                        <x-form.button-step variant="next" type="button" wire:click="nextStep">
+                            Dalej
+                        </x-form.button-step>
                     @else
-                        <button type="button" wire:click="submit" class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">Wyślij</button>
+                       <x-form.button-step variant="submit" type="button" wire:click="submit">
+                            Wyślij
+                        </x-form.button-step>
                     @endif
                 </div>
             </div>

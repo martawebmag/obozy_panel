@@ -1,19 +1,13 @@
 <div class="p-8 bg-white rounded shadow-md">
 
-    {{-- ✔️ Komunikat sukcesu --}}
-    @if (session()->has('success'))
-        <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4 shadow-sm">
-            {{ session('success') }}
-        </div>
-    @endif
-
+<h1 class="text-xl font-bold text-slate-900 border-b pb-3"><i class="fa-solid fa-pen-to-square mr-2"></i> Edycja danych stypendysty</h1>
 
     <form wire:submit.prevent="save"
-      class="bg-white p-8 rounded-md shadow-md grid grid-cols-2 gap-10">
+      class="bg-white p-8 rounded-md grid grid-cols-2 gap-10">
 
     {{-- SEK 1: Dane osobowe --}}
     <div class="col-span-2">
-        <h2 class="section-title mb-4">Dane osobowe</h2>
+        <x-form.subtitle label="Dane osobowe"/>
         <div class="grid grid-cols-2 gap-6">
             <x-form.input-text name="imie" label="Imię" wire:model.defer="imie" required />
             <x-form.input-text name="nazwisko" label="Nazwisko" wire:model.defer="nazwisko" required />
@@ -55,7 +49,7 @@
 
     {{-- SEK 2: Adres --}}
     <div class="col-span-2">
-        <h2 class="section-title mb-4">Adres</h2>
+        <x-form.subtitle label="Adres"/>
         <div class="grid grid-cols-2 gap-6">
             <x-form.input-text name="ulica" label="Ulica" wire:model.defer="ulica" />
             <x-form.input-text name="nr_domu" label="Nr domu" wire:model.defer="nr_domu" required />
@@ -65,12 +59,57 @@
 
             <x-form.input-text name="poczta" label="Poczta" wire:model.defer="poczta" required />
             <x-form.input-text name="miejscowosc" label="Miejscowość" wire:model.defer="miejscowosc" required />
+            <x-form.select name="diecezja" label="Diecezja" wire:model.defer="diecezja"
+            :options="[
+                            'białostocka'=>'białostocka',
+                            'bielsko-żywiecka'=>'bielsko-żywiecka',
+                            'bydgoska'=>'bydgoska',
+                            'częstochowska'=>'częstochowska',
+                            'drohiczyńska'=>'drohiczyńska',
+                            'elbląska'=>'elbląska',
+                            'ełcka'=>'ełcka',
+                            'gdańska'=>'gdańska',
+                            'gliwicka'=>'gliwicka',
+                            'gnieznieńska'=>'gnieźnieńska',
+                            'kaliska'=>'kaliska',
+                            'katowicka'=>'katowicka',
+                            'kielecka'=>'kielecka',
+                            'koszalińsko-kołobrzeska'=>'koszalińsko-kołobrzeska',
+                            'krakowska'=>'krakowska',
+                            'legnicka'=>'legnicka',
+                            'lubelska'=>'lubelska',
+                            'łomżyńska'=>'łomżyńska',
+                            'łowicka'=>'łowicka',
+                            'łódzka'=>'łódzka',
+                            'opolska'=>'opolska',
+                            'ordynariat polowy'=>'ordynariat polowy',
+                            'pelplińska'=>'pelplińska',
+                            'płocka'=>'płocka',
+                            'poznańska'=>'poznańska',
+                            'przemyska'=>'przemyska',
+                            'radomska'=>'radomska',
+                            'rzeszowska'=>'rzeszowska',
+                            'sandomierska'=>'sandomierska',
+                            'siedlecka'=>'siedlecka',
+                            'sosnowiecka'=>'sosnowiecka',
+                            'szczecińsko-kamieńska'=>'szczecińsko-kamieńska',
+                            'świdnicka'=>'świdnicka',
+                            'tarnowska'=>'tarnowska',
+                            'toruńska'=>'toruńska',
+                            'warmińska'=>'warmińska',
+                            'warszawska'=>'warszawska',
+                            'warszawsko-praska'=>'warszawsko-praska',
+                            'włocławska'=>'włocławska',
+                            'wrocławska'=>'wrocławska',
+                            'zamojsko-lubaczowska'=>'zamojsko-lubaczowska',
+                            'zielonogórsko-gorzowska'=>'zielonogórsko-gorzowska'
+                        ]" required/>
         </div>
     </div>
 
     {{-- SEK 3: Rodzice / Opiekun --}}
     <div class="col-span-2">
-        <h2 class="section-title mb-4">Rodzice / Opiekun</h2>
+        <x-form.subtitle label="Osoba do kontaktu"/>
         <div class="grid grid-cols-2 gap-6">
             <x-form.input-text name="imie_opiekuna" label="Imię opiekuna" wire:model.defer="imie_opiekuna" required />
             <x-form.input-text name="nazwisko_opiekuna" label="Nazwisko opiekuna" wire:model.defer="nazwisko_opiekuna" required />
@@ -81,7 +120,7 @@
 
     {{-- SEK 4: Zdrowie i dieta --}}
     <div class="col-span-2">
-        <h2 class="section-title mb-4">Zdrowie i dieta</h2>
+        <x-form.subtitle label="Zdrowie i dieta"/>
         <div class="grid grid-cols-2 gap-6">
 
             <div class="col-span-2">
@@ -107,8 +146,7 @@
 
     {{-- SEK 5: Obóz --}}
     <div class="col-span-2">
-        <h2 class="section-title mb-4">Obóz / Pozostałe informacje</h2>
-
+        <x-form.subtitle label="Obóz / Pozostałe informacje"/>
         <div class="grid grid-cols-2 gap-6">
             <x-form.select
                 name="obrona"
@@ -165,12 +203,18 @@
         </div>
     </div>
 
+    @if (session()->has('success'))
+        <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4 shadow-sm">
+            {{ session('success') }}
+        </div>
+    @endif
+
     {{-- SEK 6: Przycisk --}}
     <div class="col-span-2 text-right">
         <button
             type="submit"
             class="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 rounded-md shadow-sm transition">
-            💾 Zapisz zmiany
+            <i class="fa-solid fa-floppy-disk mr-2"></i> Zapisz zmiany
         </button>
     </div>
 

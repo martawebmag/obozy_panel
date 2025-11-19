@@ -9,7 +9,7 @@
         <div class="flex flex-col justify-start">
 
 
-            <h1 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight mt-10 mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-sky-950 leading-tight mt-10 mb-8">
                 Panel Biura Fundacji
                 <br> i Koordynatorów Diecezjalnych
             </h1>
@@ -23,7 +23,7 @@
             <div class="text-md mt-2">
                 <span class="text-gray-700">Nie masz konta?</span>
                 <a href="{{ route('register') }}"
-                   class="text-blue-700 font-medium hover:underline">
+                   class="text-sky-700 font-medium hover:underline">
                     Zarejestruj się
                 </a>
             </div>
@@ -34,7 +34,7 @@
         <!-- 🔒 PRAWA – formularz -->
         <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-md w-full max-w-sm md:ml-auto mx-auto">
 
-            <h2 class="text-2xl font-semibold text-blue-950 text-center mb-8">
+            <h2 class="text-2xl font-semibold text-sky-950 text-center mb-8">
                 Zaloguj się do panelu
             </h2>
 
@@ -49,7 +49,7 @@
                         name="email"
                         value="{{ old('email') }}"
                         required autofocus
-                        class="w-full mt-2 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"/>
+                        class="w-full mt-2 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-sky-500"/>
                 </div>
 
                 <!-- Hasło -->
@@ -59,13 +59,13 @@
                         type="password"
                         name="password"
                         required
-                        class="w-full mt-2 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"/>
+                        class="w-full mt-2 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-sky-500"/>
                 </div>
 
                 <!-- Zapamiętaj mnie -->
                 <div class="mt-4 flex items-center">
                     <input id="remember_me" type="checkbox" name="remember"
-                           class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"/>
+                           class="rounded border-gray-300 text-sky-600 focus:ring-sky-500"/>
                     <label for="remember_me" class="ms-2 text-sm text-gray-600">
                         Zapamiętaj mnie
                     </label>
@@ -75,14 +75,14 @@
                 @if (Route::has('password.request'))
                     <div class="mt-4 text-right">
                         <a href="{{ route('password.request') }}"
-                           class="text-sm text-blue-600 hover:text-blue-800">
+                           class="text-sm text-sky-700 hover:text-sky-900">
                             Zapomniałeś hasła?
                         </a>
                     </div>
                 @endif
 
                 <button
-                    class="w-full mt-8 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-semibold py-3 rounded-lg shadow hover:shadow-md hover:scale-103 transition">
+                    class="w-full mt-8 bg-gradient-to-r from-sky-800 to-sky-700 text-white font-semibold py-3 rounded-lg shadow hover:shadow-md hover:scale-103 transition">
                     Zaloguj
                 </button>
             </form>

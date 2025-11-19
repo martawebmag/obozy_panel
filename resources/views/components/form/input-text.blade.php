@@ -7,9 +7,9 @@
     'required' => false,
 ])
 
-<div class="mb-2 w-full">
+<div class="w-full">
     @if($label)
-        <label for="{{ $name }}" class="block text-black text-xs mb-1 ml-1">
+        <label for="{{ $name }}" class="block text-black text-xs ml-1 mb-0.5">
             {{ $label }}
 
             @if($required)
@@ -24,7 +24,7 @@
         id="{{ $name }}"
         value="{{ old($name, $value) }}"
         wire:model.lazy="{{ $model }}"
-        {{ $attributes->merge(['class' => 'w-full border border-slate-300 bg-slate-50 rounded px-2 py-1 text-xs text-slate-900 focus:outline-none focus:ring focus:border-blue-200']) }}
+        {{ $attributes->merge(['class' => 'w-full border border-slate-300 rounded bg-white shadow-sm px-2 py-1 text-xs text-slate-900 focus:ring-sky-500']) }}
     >
 
     @error($name)

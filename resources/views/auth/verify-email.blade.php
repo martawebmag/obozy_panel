@@ -4,12 +4,12 @@
 
 <div class="max-w-md mx-auto bg-white border-gray-300 border rounded-lg p-8 mt-8 shadow-sm">
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        {{ __('Dziękujemy za rejestrację! Zanim zaczniesz, prosimy o potwierdzenie adresu e-mail, klikając link, który właśnie wysłaliśmy na Twoją skrzynkę pocztową. Jeśli nie otrzymałeś wiadomości e-mail, chętnie wyślemy Ci kolejną.') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            {{ __('Na adres e-mail podany podczas rejestracji wysłano nowy link weryfikacyjny.') }}
         </div>
     @endif
 
@@ -19,7 +19,7 @@
 
             <div>
                 <x-primary-button>
-                    {{ __('Resend Verification Email') }}
+                    {{ __('Wyślij ponownie e-mail weryfikacyjny') }}
                 </x-primary-button>
             </div>
         </form>
@@ -28,7 +28,7 @@
             @csrf
 
             <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
+                {{ __('Wyloguj') }}
             </button>
         </form>
     </div>

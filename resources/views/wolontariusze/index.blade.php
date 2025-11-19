@@ -6,12 +6,12 @@
     <!-- 🧭 Pasek nawigacyjny -->
     <div class="bg-slate-400 border-b border-gray-300">
         <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-gray-700 flex items-center space-x-2">
-            <a href="{{ route('welcome') }}" class="hover:text-blue-800 flex items-center gap-1">
-                <i class="fas fa-house text-blue-800"></i>
+            <a href="{{ route('welcome') }}" class="hover:text-sky-700 flex items-center gap-1">
+                <i class="fas fa-house text-sky-600"></i>
                 <span>Strona główna</span>
             </a>
             <span class="text-gray-600">››</span>
-            <span class="font-medium text-blue-900">Wolontariusze</span>
+            <span class="font-medium text-sky-700">Wolontariusze</span>
         </div>
     </div>
 
@@ -21,7 +21,7 @@
 
             <!-- Nagłówek -->
             <header class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-blue-950 mb-3 tracking-tight">
+                <h1 class="text-4xl font-bold text-sky-950 mb-3 tracking-tight">
                     Wolontariusze
                 </h1>
                 <p class="text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
@@ -36,7 +36,7 @@
                 <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                             transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-                    <h3 class="text-2xl font-bold text-blue-900 mb-3">
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">
                         Obóz uczniowski
                     </h3>
 
@@ -47,13 +47,13 @@
                 <div class="text-sm text-gray-700 mb-8 space-y-1 text-start">
                     @if($obozUczniowie)
                         <p>
-                            <span class="font-semibold text-blue-900">Termin obozu:</span>
+                            <span class="font-semibold text-sky-700">Termin obozu:</span>
                             {{ \Carbon\Carbon::parse($obozUczniowie->start_date)->translatedFormat('d F') }}
                             –
                             {{ \Carbon\Carbon::parse($obozUczniowie->end_date)->translatedFormat('d F Y') }}
                         </p>
                         <p>
-                            <span class="font-semibold text-blue-900">Miejsce obozu:</span>
+                            <span class="font-semibold text-sky-700">Miejsce obozu:</span>
                             {{ $obozUczniowie->miejsce }}
                         </p>
                     @else
@@ -77,7 +77,7 @@
                 <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                             transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-                    <h3 class="text-2xl font-bold text-blue-900 mb-3">
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">
                         Obóz maturzystów
                     </h3>
 
@@ -86,8 +86,8 @@
                     </p>
 
                     <div class="text-sm text-gray-700 mb-6 space-y-1 text-start">
-                        <p><span class="font-semibold text-blue-900">Termin obozu:</span> 5–15 lipca 2026</p>
-                        <p><span class="font-semibold text-blue-900">Miejsce obozu:</span> Częstochowa</p>
+                        <p><span class="font-semibold text-sky-700">Termin obozu:</span> 5–15 lipca 2026</p>
+                        <p><span class="font-semibold text-sky-700">Miejsce obozu:</span> Częstochowa</p>
                     </div>
 
                     <div class="flex flex-col w-full">
@@ -106,7 +106,7 @@
                 <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                             transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-                    <h3 class="text-2xl font-bold text-blue-900 mb-3">
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">
                         Obóz studencki
                     </h3>
 
@@ -115,8 +115,8 @@
                     </p>
 
                     <div class="text-sm text-gray-700 mb-6 space-y-1 text-start">
-                        <p><span class="font-semibold text-blue-900">Termin obozu:</span> 5–15 sierpnia 2026</p>
-                        <p><span class="font-semibold text-blue-900">Miejsce obozu:</span> Białka Tatrzańska</p>
+                        <p><span class="font-semibold text-sky-700">Termin obozu:</span> 5–15 sierpnia 2026</p>
+                        <p><span class="font-semibold text-sky-700">Miejsce obozu:</span> Białka Tatrzańska</p>
                     </div>
 
                     <div class="flex flex-col w-full">

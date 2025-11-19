@@ -1,4 +1,5 @@
 <?php
+namespace App\Http\Controllers\Koordynatorzy;
 
 use App\Models\Oboz;
 use App\Exports\UczniowieExport;
@@ -14,9 +15,9 @@ Route::middleware(['auth', 'role:koordynator'])
     ->prefix('koordynatorzy')->name('koordynatorzy.')
     ->group(function () {
 
-        Route::get('/dashboard', function () {
+        Route::get('/', function () {
             $user = Auth::user();
-            $obozy = getObozy(); 
+            $obozy = getObozy();
             return view('koordynatorzy.dashboard', $obozy + ['user' => $user]);
         })->name('dashboard');
 

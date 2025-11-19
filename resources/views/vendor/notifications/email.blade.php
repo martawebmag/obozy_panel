@@ -56,7 +56,7 @@
 <x-slot:subcopy>
     <p class="text-xs text-slate-400 mt-4 text-center">
         @lang(
-            "Jeśli masz problem z kliknięciem przycisku \":actionText\", skopiuj i wklej poniższy link do przeglądarki:",
+            "Jeśli masz problem z kliknięciem przycisku \"Ustaw hasło\", skopiuj i wklej poniższy link do przeglądarki:",
             ['actionText' => $actionText]
         )<br>
         <span class="break-all">{{ $displayableActionUrl }}</span>

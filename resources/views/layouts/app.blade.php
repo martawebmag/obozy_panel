@@ -29,7 +29,7 @@
 
             @if(request()->is('profile'))
                 <a href="{{ route(auth()->user()->dashboardRoute()) }}"
-                   class="hidden sm:inline-flex items-center px-3 py-1.5 text-sm font-medium text-blue-700 hover:text-blue-800 hover:bg-blue-50 rounded transition">
+                   class="hidden sm:inline-flex items-center px-3 py-1.5 text-sm font-medium text-sky-700 hover:text-sky-800 hover:bg-blue-50 rounded transition">
                     <i class="fa-solid fa-dashboard mr-1"></i> Dashboard
                 </a>
             @endif
@@ -37,7 +37,7 @@
             <!-- Dropdown -->
             <div class="relative" x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false">
                 <button @click="open = !open"
-                        class="inline-flex items-center px-4 py-2 border border-slate-300 rounded-md text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        class="inline-flex items-center px-4 py-2 border border-slate-300 rounded-md text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-200 focus:outline-none focus:ring-1 focus:ring-sky-500 transition">
                     <span>{{ Auth::user()->name }} {{ Auth::user()->surname }}</span>
                     <svg class="ml-2 h-4 w-4 fill-current text-slate-500 transition-transform"
                          :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -55,16 +55,20 @@
                      class="absolute right-0 mt-2 w-48 bg-slate-50 border border-slate-300 rounded-md shadow-lg z-50">
 
                     <x-dropdown-link :href="route('profile.edit')" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-200 hover:text-slate-900">
-                        Profil
+                        <i class="fa-regular fa-user mr-2"></i> Profil
                     </x-dropdown-link>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault(); this.closest('form').submit();"
-                                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-200 hover:text-slate-900">
-                            Wyloguj
+                        <x-dropdown-link
+                            :href="route('logout')"
+                            onclick="event.preventDefault(); this.closest('form').submit();"
+                            class="flex items-center space-x-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-200 hover:text-slate-900"
+                        >
+                            <img src="{{ asset('images/logout.png') }}" alt="logo" class="w-4 h-4">
+                            <span>Wyloguj</span>
                         </x-dropdown-link>
+
                     </form>
 
                 </div>

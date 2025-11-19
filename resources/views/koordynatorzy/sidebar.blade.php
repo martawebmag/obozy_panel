@@ -7,14 +7,14 @@
         <div class="text-center mb-6">
 
             <div class="flex justify-center mb-2">
-                <i class="fa-solid fa-church text-3xl text-blue-500"></i>
+                <i class="fa-solid fa-church text-2xl text-sky-600"></i>
             </div>
 
             <h2 class="text-lg font-semibold text-slate-100">
                 Diecezja
             </h2>
 
-            <p class="mt-1 text-xs font-semibold text-blue-400 tracking-wide uppercase">
+            <p class="text-lg font-semibold text-sky-500">
                 {{ Auth::user()->diocese }}
             </p>
 
@@ -39,7 +39,7 @@
                         ? 'bg-slate-700 text-white shadow-sm'
                         : 'text-slate-200 hover:bg-slate-700' }}">
                     <i class="fa-solid fa-file-pen text-base
-                    {{ request()->routeIs('koordynatorzy.dashboard') ? 'text-blue-300' : 'text-blue-300' }}"></i>
+                    {{ request()->routeIs('koordynatorzy.dashboard') ? 'text-sky-300' : 'text-sky-300' }}"></i>
                     <span>Raporty</span>
                 </a>
             </li>
@@ -49,10 +49,10 @@
                 <a href="#"
                    class="flex items-center gap-3 px-4 py-2 rounded-lg transition
                    {{ request()->routeIs('koordynatorzy.search')
-                        ? 'bg-blue-700 text-white shadow-sm'
+                        ? 'bg-sky-700 text-white shadow-sm'
                         : 'text-slate-200 hover:bg-slate-700' }}">
                     <i class="fa-solid fa-magnifying-glass text-base
-                    {{ request()->routeIs('koordynatorzy.search') ? 'text-white' : 'text-blue-300' }}"></i>
+                    {{ request()->routeIs('koordynatorzy.search') ? 'text-white' : 'text-sky-300' }}"></i>
                     <span>Znajdź stypendystę</span>
                 </a>
             </li>
@@ -62,10 +62,10 @@
                 <a href="#"
                    class="flex items-center gap-3 px-4 py-2 rounded-lg transition
                    {{ request()->routeIs('koordynatorzy.history')
-                        ? 'bg-blue-700 text-white shadow-sm'
+                        ? 'bg-sky-700 text-white shadow-sm'
                         : 'text-slate-200 hover:bg-slate-700' }}">
                     <i class="fa-solid fa-clock-rotate-left text-base
-                    {{ request()->routeIs('koordynatorzy.history') ? 'text-white' : 'text-blue-300' }}"></i>
+                    {{ request()->routeIs('koordynatorzy.history') ? 'text-white' : 'text-sky-300' }}"></i>
                     <span>Historia obozowa</span>
                 </a>
             </li>
@@ -78,7 +78,7 @@
         <form method="POST" action="{{ route('logout') }}" class="mt-auto">
             @csrf
             <button type="submit"
-                    class="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:scale-103 transition">
+                    class="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-sky-900 to-sky-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:scale-103 transition">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Wyloguj się
             </button>

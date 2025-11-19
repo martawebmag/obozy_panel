@@ -16,10 +16,10 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-         $user = Auth::user();
+        $user = Auth::user();
 
         if (!$user) {
-            return redirect()->route('login');
+            return redirect()->route('login'); // przekierowanie, jeśli nie zalogowany
         }
 
         if (!in_array($user->role, $roles, true)) {
@@ -27,6 +27,5 @@ class RoleMiddleware
         }
 
         return $next($request);
-
     }
 }

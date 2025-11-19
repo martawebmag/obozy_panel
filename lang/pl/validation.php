@@ -29,7 +29,7 @@ return [
         'array' => 'Pole :attribute musi mieć od :min do :max elementów.',
     ],
     'boolean' => 'Pole :attribute musi być prawdą lub fałszem.',
-    'confirmed' => 'Potwierdzenie pola :attribute nie zgadza się.',
+    'confirmed' => 'Hasła do siebie nie pasują.',
     'date' => 'Pole :attribute nie jest prawidłową datą.',
     'date_equals' => 'Pole :attribute musi być datą równą :date.',
     'date_format' => 'Pole :attribute nie pasuje do formatu :format.',
@@ -68,7 +68,7 @@ return [
     'min' => [
         'numeric' => 'Pole :attribute musi być co najmniej :min.',
         'file' => 'Plik :attribute musi mieć co najmniej :min kilobajtów.',
-        'string' => 'Pole :attribute musi mieć co najmniej :min znaków.',
+        'string' => ':attribute musi mieć co najmniej :min znaków.',
         'array' => 'Pole :attribute musi mieć co najmniej :min elementów.',
     ],
     'not_in' => 'Wybrane :attribute jest nieprawidłowe.',
@@ -130,5 +130,6 @@ return [
         'nazwisko_opiekuna' => 'nazwisko opiekuna',
         'telefon_opiekuna' => 'telefon opiekuna',
         'pesel_opiekuna' => 'PESEL opiekuna',
+        'password' => 'Hasło'
     ],
 ];

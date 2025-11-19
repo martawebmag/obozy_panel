@@ -1,6 +1,13 @@
-<h1 class="text-2xl font-bold text-slate-800 mb-10">
-    Uczniowie - zgłoszenia
-</h1>
+<div class="flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-slate-800 mb-6">
+        Zgłoszeni na obozy - uczniowie
+    </h1>
+
+    <a href="{{ route('biuro.uczniowie.export') }}"
+        class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg shadow-md text-md">
+        <i class="fa-solid fa-download mr-2"></i> Pobierz (xls)
+    </a>
+</div>
 
 <!-- 🔹 Informacja o wynikach -->
 <div class="mb-2 text-sm text-slate-600">
@@ -37,7 +44,7 @@
 
                     <td class="px-2 py-1 flex space-x-1 text-xs">
                         <a href="{{ route('biuro.stypendysci.edit', $uczen->id) }}"
-                            class="flex items-center text-blue-600 border border-blue-200 px-2 py-0.5 rounded hover:bg-blue-50 truncate mr-4">
+                            class="flex items-center text-sky-600 border border-sky-200 px-2 py-0.5 rounded hover:bg-sky-50 truncate mr-4">
                             <i class="fa-solid fa-pen mr-1 text-xs"></i> Edytuj
                         </a>
 

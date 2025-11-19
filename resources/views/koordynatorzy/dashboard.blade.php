@@ -13,11 +13,11 @@
     <h1 class="text-2xl font-semibold mt-4">Raporty </h1>
     <div class="h-[1px] w-[20%] bg-slate-200 mt-1 mb-8"></div>
 
-    <p class="text-lg text-yellow-600 font-semibold mb-8">
+    <p class="text-lg text-yellow-500 font-semibold mb-8">
         <i class="fa-solid fa-people-roof mr-2"></i> Diecezja {{ Auth::user()->diocese  }}
     </p>
     <p class="text-sm text-slate-600 mb-2">
-        Lista stypendystów zapisanych na obozy fundacyjne:
+        Aktualna lista stypendystów zapisanych na obozy fundacyjne:
     </p>
 
     <div class="overflow-x-auto">
@@ -35,7 +35,7 @@
             <tbody>
                 <!-- Obóz uczniów -->
                 <tr class="bg-white hover:bg-blue-50 transition">
-                    <td class="px-4 py-3 font-medium text-blue-700 flex items-center gap-2">
+                    <td class="px-4 py-3 font-medium text-sky-700 flex items-center gap-2">
                         Obóz uczniów
                     </td>
                     @if(isset($obozUczniowie))
@@ -63,7 +63,7 @@
                             @csrf
                             <button
                                 class="px-4 py-2 font-medium border text-emerald-600 border-emerald-600 rounded-md hover:bg-emerald-600 hover:text-white transition flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> XLS
+                                <i class="fa-solid fa-download"></i> Pobierz (xls)
                             </button>
                         </form>
                     </td>
@@ -71,7 +71,7 @@
 
                 <!-- Obóz studentów -->
                 <tr class="bg-white hover:bg-blue-50 transition">
-                    <td class="px-4 py-3 font-medium text-blue-700 flex items-center gap-2">
+                    <td class="px-4 py-3 font-medium text-sky-700 flex items-center gap-2">
                         Obóz studentów
                     </td>
                      @if(isset($obozStudenci))
@@ -98,7 +98,7 @@
                             @csrf
                             <button
                                 class="px-4 py-2 font-medium border border-emerald-600 text-emerald-600 rounded-md hover:bg-emerald-600 hover:text-white transition flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> XLS
+                                <i class="fa-solid fa-download"></i> Pobierz (xls)
                             </button>
                         </form>
                     </td>

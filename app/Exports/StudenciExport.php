@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-use App\Models\Stypendysta;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -21,7 +20,7 @@ class StudenciExport implements FromCollection, WithHeadings, WithStyles, Should
 
     public function collection()
     {
-        // Pobranie stypendystów z ich zgłoszeniami i obozami, tylko uczniów
+        // Pobranie stypendystów z ich zgłoszeniami i obozami
         $dane = DB::table('stypendysci')
             ->leftJoin('zgloszenia', 'zgloszenia.stypendysta_id', '=', 'stypendysci.id')
             ->leftJoin('obozy', 'obozy.id', '=', 'zgloszenia.oboz_id')

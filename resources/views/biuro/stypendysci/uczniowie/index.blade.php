@@ -15,18 +15,18 @@
                 </div>
             @endif
 
-            <div x-data="{ tab: 'zgloszenia' }" class="mb-6" x-cloak>
+            <div x-data="{ tab: 'zgloszenia' }" class="mb-8" x-cloak>
 
                 <!-- 🔹 Przełączniki -->
                 <div class="flex space-x-2 mb-4">
                     <button @click="tab = 'zgloszenia'"
-                        :class="tab === 'zgloszenia' ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'"
+                        :class="tab === 'zgloszenia' ? 'bg-sky-600 text-white' : 'bg-gray-300 text-gray-700'"
                         class="px-4 py-2 rounded font-medium transition">
                         Zgłoszenia
                     </button>
 
                     <button @click="tab = 'usprawiedliwienia'"
-                        :class="tab === 'usprawiedliwienia' ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'"
+                        :class="tab === 'usprawiedliwienia' ? 'bg-sky-600 text-white' : 'bg-gray-300 text-gray-700'"
                         class="px-4 py-2 rounded font-medium transition">
                         Usprawiedliwienia
                     </button>

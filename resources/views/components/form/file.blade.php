@@ -3,9 +3,9 @@
     'label' => null,
 ])
 
-<div class="mb-4">
+<div class="mb-2">
     @if($label)
-        <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 mb-1">
+        <label for="{{ $name }}" class="block text-sm text-gray-700 mb-1">
             {{ $label }}
         </label>
     @endif
@@ -19,8 +19,8 @@
             for="{{ $name }}"
             class="
                 flex items-center justify-center
-                px-4 py-2 text-sm text-white bg-blue-600
-                rounded-l-lg cursor-pointer hover:bg-blue-700
+                px-4 py-2 text-sm text-white bg-sky-600
+                rounded-l-lg cursor-pointer hover:bg-sky-700
                 transition duration-150"
         >
             Wybierz plik

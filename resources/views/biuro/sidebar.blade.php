@@ -24,7 +24,7 @@
             <div class="space-y-1">
                 <a href="{{ route('biuro.stypendysci.index') }}"
                    class="flex items-center gap-2 px-4 py-2 rounded-md transition hover:bg-slate-700">
-                    <i class="fa-solid fa-user-graduate text-blue-400"></i>
+                    <i class="fa-solid fa-user-graduate text-sky-400"></i>
                     <span class="font-medium text-slate-100 text-sm">Stypendyści</span>
                 </a>
 
@@ -48,7 +48,7 @@
             <!-- Wolontariusze -->
             <a href="{{ route('biuro.wolontariusze.index') }}"
                class="flex items-center gap-2 px-4 py-2 rounded-md transition hover:bg-slate-700 text-sm">
-                <i class="fa-solid fa-hands-helping text-blue-400"></i>
+                <i class="fa-solid fa-hands-helping text-sky-400"></i>
                 <span class="font-medium text-slate-100">Wolontariusze</span>
             </a>
         </div>
@@ -63,13 +63,13 @@
 
             <a href="{{ route('biuro.koordynatorzy.index') }}"
                class="flex items-center gap-2 px-4 py-2 rounded-md transition hover:bg-slate-700 text-sm">
-                <i class="fa-solid fa-user-tie text-blue-400"></i>
+                <i class="fa-solid fa-user-tie text-sky-400"></i>
                 <span class="font-medium text-slate-100">Koordynatorzy</span>
             </a>
 
             <a href="{{ route('biuro.obozy.index') }}"
                class="flex items-center gap-2 px-4 py-2 rounded-md transition hover:bg-slate-700 text-sm">
-                <i class="fa-solid fa-campground text-blue-400"></i>
+                <i class="fa-solid fa-campground text-sky-400"></i>
                 <span class="font-medium text-slate-100">Obozy</span>
             </a>
         </div>
@@ -78,7 +78,7 @@
 
         <a href="{{ route('biuro.search') }}"
             class="flex items-center gap-2 px-4 py-2 rounded-md transition hover:bg-slate-700 text-sm">
-            <i class="fa-solid fa-search text-blue-400"></i>
+            <i class="fa-solid fa-search text-sky-400"></i>
             <span class="font-medium text-yellow-200">Znajdź stypendystę</span>
         </a>
     </nav>

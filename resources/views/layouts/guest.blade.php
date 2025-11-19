@@ -33,7 +33,7 @@
                 </div> --}}
             @auth
                 <div class="flex space-x-8">
-                    <a href="{{ route(auth()->user()->dashboardRoute()) }}" class="text-blue-700 font-semibold"><i class="fa-solid fa-dashboard mr-1"></i> Dashboard</a>
+                    <a href="{{ route(auth()->user()->dashboardRoute()) }}" class="text-sky-700 font-semibold"><i class="fa-solid fa-dashboard mr-1"></i> Dashboard</a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button
@@ -51,12 +51,12 @@
                 <div class="flex space-x-6">
                     <a href="{{ route('login') }}"
                     class="text-slate-700 font-semibold hover:underline">
-                    <i class="fa-solid fa-arrow-right-to-bracket text-blue-600 mr-1"></i> Logowanie
+                    <i class="fa-solid fa-arrow-right-to-bracket text-sky-600 mr-1"></i> Logowanie
                     </a>
 
                     <a href="{{ route('register') }}"
                     class="text-slate-700 font-semibold hover:underline">
-                    <i class="fa-solid fa-id-card text-blue-600 mr-1"></i> Rejestracja
+                    <i class="fa-solid fa-id-card text-sky-600 mr-1"></i> Rejestracja
                     </a>
                 </div>
             @endif
@@ -68,7 +68,7 @@
     </main>
 
     {{-- FOOTER --}}
-    <footer class="bg-blue-950 text-blue-50 py-4 text-center text-sm border-t border-blue-900 mt-auto">
+    <footer class="bg-slate-700 text-blue-50 py-4 text-center text-sm border-t border-blue-900 mt-auto">
         <p>&copy; {{ date('Y') }} Fundacja Dzieło Nowego Tysiąclecia. Wszelkie prawa zastrzeżone.</p>
     </footer>
  @livewireScripts

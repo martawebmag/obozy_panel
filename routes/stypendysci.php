@@ -23,3 +23,5 @@ Route::prefix('stypendysci')->name('stypendysci.')->group(function () {
     })->name('studenci');
 });
 
+
+

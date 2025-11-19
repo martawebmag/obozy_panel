@@ -5,8 +5,7 @@
 
         @include('biuro.sidebar')
 
-        <main class="flex-1 p-10 bg-slate-50 shadow-inner border-l-2 border-slate-200">
-            <h1 class="text-2xl font-bold mb-6">Edytuj</h1>
+        <main class="flex-1 p-6 bg-slate-50 shadow-inner border-l-2 border-slate-200">
 
             @livewire('biuro.edit-student', ['student' => $student])
 

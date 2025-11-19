@@ -1,31 +1,28 @@
 <?php
 
-namespace App\Exports;
+namespace App\Exports\Biuro;
 
+use App\Models\Stypendysta;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
-use Illuminate\Support\Facades\DB;
 
 class UczniowieExport implements FromCollection, WithHeadings, WithStyles, ShouldAutoSize
 {
-    protected $diecezja;
 
-    public function __construct($diecezja)
-    {
-        $this->diecezja = $diecezja;
-    }
 
     public function collection()
     {
-        // Pobranie stypendystów z ich zgłoszeniami i obozami, tylko uczniów
+        // Pobranie stypendystów z ich zgłoszeniami i obozami
         $dane = DB::table('stypendysci')
             ->leftJoin('zgloszenia', 'zgloszenia.stypendysta_id', '=', 'stypendysci.id')
             ->leftJoin('obozy', 'obozy.id', '=', 'zgloszenia.oboz_id')
-            ->where('stypendysci.diecezja', $this->diecezja)
-            ->where('stypendysci.typ_uczestnika', 'Uczen') // <-- tylko uczniowie
+            ->where('stypendysci.typ_uczestnika', 'Uczen') // <-- tylko studenci
             ->select(
                 'stypendysci.imie',
                 'stypendysci.nazwisko',
@@ -83,7 +80,6 @@ class UczniowieExport implements FromCollection, WithHeadings, WithStyles, Shoul
     public function styles(Worksheet $sheet)
     {
         return [
-            // styl nagłówka (pierwszy wiersz)
             1 => [
                 'font' => [
                     'bold' => true,

@@ -4,7 +4,7 @@
 
 <div class="max-w-md mx-auto bg-white border-gray-300 border rounded-lg p-8 mt-8 shadow-sm">
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Nie pamiętasz hasła? Nie ma problemu. Po prostu podaj nam swój adres e-mail, a my wyślemy Ci link do resetowania hasła, który pozwoli Ci wybrać nowe.') }}
     </div>
 
     <!-- Session Status -->
@@ -22,7 +22,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+                {{ __('Zresetuj hasło') }}
             </x-primary-button>
         </div>
     </form>

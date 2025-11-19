@@ -5,13 +5,13 @@
 
     <!-- 🧭 Pasek nawigacyjny -->
     <div class="bg-slate-400 border-b border-gray-300">
-        <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-gray-700 flex items-center space-x-2">
-            <a href="{{ route('welcome') }}" class="hover:text-blue-800 flex items-center gap-1">
-                <i class="fas fa-house text-blue-800"></i>
+        <div class="max-w-7xl mx-auto px-6 py-2 text-sm text-slate-700 flex items-center space-x-2">
+            <a href="{{ route('welcome') }}" class="hover:text-slate-950 flex items-center gap-1">
+                <i class="fas fa-house text-sky-700"></i>
                 <span>Strona główna</span>
             </a>
             <span class="text-gray-600">››</span>
-            <span class="font-medium text-blue-900">Stypendyści</span>
+            <span class="font-medium text-sky-700">Stypendyści</span>
         </div>
     </div>
 
@@ -21,7 +21,7 @@
 
             <!-- Nagłówek -->
             <header class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-blue-950 mb-3 tracking-tight">
+                <h1 class="text-4xl font-bold text-sky-950 mb-3 tracking-tight">
                     Stypendysto!
                 </h1>
                 <p class="text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
@@ -36,7 +36,7 @@
     <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                 transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-        <h3 class="text-3xl font-bold text-blue-900 mb-3">
+        <h3 class="text-3xl font-bold text-sky-700 mb-3">
             Uczniowie
         </h3>
         <div class="h-1 w-24 bg-yellow-400 mb-6"></div>
@@ -49,13 +49,13 @@
         <div class="text-sm text-gray-700 mb-8 space-y-1 text-start">
             @if($obozUczniowie)
                 <p>
-                    <span class="font-semibold text-blue-900">Termin obozu:</span>
+                    <span class="font-semibold text-sky-900">Termin obozu:</span>
                     {{ \Carbon\Carbon::parse($obozUczniowie->start_date)->translatedFormat('d F') }}
                     –
                     {{ \Carbon\Carbon::parse($obozUczniowie->end_date)->translatedFormat('d F Y') }}
                 </p>
                 <p>
-                    <span class="font-semibold text-blue-900">Miejsce obozu:</span>
+                    <span class="font-semibold text-sky-900">Miejsce obozu:</span>
                     {{ $obozUczniowie->miejsce }}
                 </p>
             @else
@@ -67,14 +67,14 @@
 
             <a href="{{ route('stypendysci.uczniowie') }}"
                class="px-6 py-2 rounded-lg text-white font-semibold
-                      bg-blue-900 hover:bg-blue-800 hover:scale-[1.03]
+                      bg-sky-700 hover:bg-sky-800 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                       <i class="fa-solid fa-file-circle-plus mr-2"></i>
                 Zgłoszenie
             </a>
 
             <a href="#"
-               class="px-6 py-2 rounded-lg text-blue-900 font-semibold border border-yellow-400
+               class="px-6 py-2 rounded-lg text-sky-900 font-semibold border border-yellow-300
                       bg-yellow-200 hover:bg-yellow-300 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                        <i class="fa-solid fa-file-pen mr-2"></i>
@@ -90,7 +90,7 @@
     <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                 transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-        <h3 class="text-3xl font-bold text-blue-900 mb-3">
+        <h3 class="text-3xl font-bold text-sky-700 mb-3">
             Maturzyści
         </h3>
         <div class="h-1 w-24 bg-yellow-400 mb-6"></div>
@@ -109,7 +109,7 @@
                     {{ \Carbon\Carbon::parse($obozMaturzysci->end_date)->translatedFormat('d F Y') }}
                 </p>
                 <p>
-                    <span class="font-semibold text-blue-900">Miejsce obozu:</span>
+                    <span class="font-semibold text-sky-900">Miejsce obozu:</span>
                     {{ $obozMaturzysci->miejsce }}
                 </p>
             @else
@@ -121,14 +121,14 @@
 
             <a href="#"
                class="px-6 py-2 rounded-lg text-white font-semibold
-                      bg-blue-900 hover:bg-blue-800 hover:scale-[1.03]
+                      bg-sky-700 hover:bg-sky-800 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                       <i class="fa-solid fa-file-circle-plus mr-2"></i>
                 Zgłoszenie
             </a>
 
             <a href="#"
-               class="px-6 py-2 rounded-lg text-blue-900 font-semibold border border-yellow-400
+               class="px-6 py-2 rounded-lg text-sky-900 font-semibold border border-yellow-300
                       bg-yellow-200 hover:bg-yellow-300 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                        <i class="fa-solid fa-file-pen mr-2"></i>
@@ -144,7 +144,7 @@
     <div class="group bg-white border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg
                 transition-all duration-300 rounded-xl p-6 flex flex-col items-center text-center">
 
-        <h3 class="text-3xl font-bold text-blue-900 mb-3">
+        <h3 class="text-3xl font-bold text-sky-700 mb-3">
             Studenci
         </h3>
         <div class="h-1 w-24 bg-yellow-400 mb-6"></div>
@@ -157,13 +157,13 @@
         <div class="text-sm text-gray-700 mb-8 space-y-1 text-start">
             @if($obozStudenci)
                 <p>
-                    <span class="font-semibold text-blue-900">Termin obozu:</span>
+                    <span class="font-semibold text-sky-900">Termin obozu:</span>
                     {{ \Carbon\Carbon::parse($obozStudenci->start_date)->translatedFormat('d F') }}
                     –
                     {{ \Carbon\Carbon::parse($obozStudenci->end_date)->translatedFormat('d F Y') }}
                 </p>
                 <p>
-                    <span class="font-semibold text-blue-900">Miejsce obozu:</span>
+                    <span class="font-semibold text-sky-900">Miejsce obozu:</span>
                     {{ $obozStudenci->miejsce }}
                 </p>
             @else
@@ -175,14 +175,14 @@
 
             <a href="{{ route('stypendysci.studenci') }}"
                class="px-6 py-2 rounded-lg text-white font-semibold
-                      bg-blue-900 hover:bg-blue-800 hover:scale-[1.03]
+                      bg-sky-700 hover:bg-sky-800 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                       <i class="fa-solid fa-file-circle-plus mr-2"></i>
                 Zgłoszenie
             </a>
 
             <a href="#"
-               class="px-6 py-2 rounded-lg text-blue-900 font-semibold border border-yellow-400
+               class="px-6 py-2 rounded-lg text-sky-900 font-semibold border border-yellow-300
                       bg-yellow-200 hover:bg-yellow-300 hover:scale-[1.03]
                       shadow-md transition-all duration-200 text-sm">
                        <i class="fa-solid fa-file-pen mr-2"></i>

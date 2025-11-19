@@ -7,7 +7,7 @@
     'required' =>false,
 ])
 
-<div class="mb-1 flex items-center">
+<div class="flex items-center">
     <input
         type="checkbox"
         name="{{ $name }}"
@@ -15,10 +15,10 @@
         value="{{ $value }}"
         wire:model.lazy="{{ $model }}"
         {{ old($name, $checked) ? 'checked' : '' }}
-        {{ $attributes->merge(['class' => 'h-4 w-4 text-blue-600 border-slate-300 rounded focus:ring focus:ring-blue-200']) }}
+        {{ $attributes->merge(['class' => 'h-4 w-4 text-sky-600 border-slate-300 rounded focus:ring focus:ring-sky-200']) }}
     >
     @if($label)
-        <label for="{{ $name }}" class="ml-2 block text-slate-700 text-xs">
+        <label for="{{ $name }}" class="ml-2 block text-slate-800 text-xs">
             {{ $label }}
         @if($required)
             <span class="text-red-500">*</span>

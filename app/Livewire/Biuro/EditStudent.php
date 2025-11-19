@@ -11,7 +11,7 @@ class EditStudent extends Component
     public Stypendysta $student;
 
     public $imie, $nazwisko, $pesel, $data_urodzenia, $email_dzielo, $email_prywatny, $telefon, $plec, $wspolnota;
-    public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc;
+    public $ulica, $nr_domu, $nr_mieszkania, $kod_pocztowy, $poczta, $miejscowosc, $diecezja;
     public $imie_opiekuna, $nazwisko_opiekuna, $telefon_opiekuna;
     public $zdrowie, $dieta, $jaka_dieta, $dieta_info;
     public $obrona, $sesja, $koniecSesji, $tshirt, $chor, $instrument, $posluga, $medycyna, $uwagi;
@@ -20,6 +20,7 @@ class EditStudent extends Component
     public function mount(Stypendysta $student)
     {
         $this->student = $student;
+        $zgloszenie = $student->zgloszenia()->first();
 
         $this->imie = $student->imie;
         $this->nazwisko = $student->nazwisko;
@@ -38,6 +39,7 @@ class EditStudent extends Component
         $this->kod_pocztowy = $student->kod_pocztowy;
         $this->poczta = $student->poczta;
         $this->miejscowosc = $student->miejscowosc;
+        $this->diecezja = $student->diecezja;
 
         // rodzice/opiekun
         $this->imie_opiekuna = $student->imie_opiekuna;
@@ -45,27 +47,27 @@ class EditStudent extends Component
         $this->telefon_opiekuna = $student->telefon_opiekuna;
 
         // zdrowie / dieta
-        $this->zdrowie = $student->zdrowie;
-        $this->dieta = $student->dieta;
-        $this->jaka_dieta = $student->jaka_dieta;
-        $this->dieta_info = $student->dieta_info;
+        $this->zdrowie = $zgloszenie->zdrowie;
+        $this->dieta = $zgloszenie->dieta;
+        $this->jaka_dieta = $zgloszenie->jaka_dieta;
+        $this->dieta_info = $zgloszenie->dieta_info;
 
         // pozostałe pola
-        $this->obrona = $student->obrona;
-        $this->sesja = $student->sesja;
-        $this->koniecSesji = $student->koniecSesji;
-        $this->tshirt = $student->tshirt;
-        $this->chor = $student->chor;
-        $this->instrument = $student->instrument;
-        $this->posluga = $student->posluga;
-        $this->medycyna = $student->medycyna;
-        $this->uwagi = $student->uwagi;
+        $this->obrona = $zgloszenie->obrona;
+        $this->sesja = $zgloszenie->sesja;
+        $this->koniecSesji = $zgloszenie->koniecSesji;
+        $this->tshirt = $zgloszenie->tshirt;
+        $this->chor = $zgloszenie->chor;
+        $this->instrument = $zgloszenie->instrument;
+        $this->posluga = $zgloszenie->posluga;
+        $this->medycyna = $zgloszenie->medycyna;
+        $this->uwagi = $zgloszenie->uwagi;
 
         // zgody
-        $this->regulamin = $student->regulamin;
-        $this->rodo = $student->rodo;
-        $this->wizerunek = $student->wizerunek;
-        $this->ochrona_maloletnich = $student->ochrona_maloletnich;
+        $this->regulamin = $zgloszenie->regulamin;
+        $this->rodo = $zgloszenie->rodo;
+        $this->wizerunek = $zgloszenie->wizerunek;
+        $this->ochrona_maloletnich = $zgloszenie->ochrona_maloletnich;
     }
 
     protected $rules = [
@@ -82,6 +84,7 @@ class EditStudent extends Component
         'kod_pocztowy' => 'required|string|max:10',
         'poczta' => 'required|string|max:100',
         'miejscowosc' => 'required|string|max:100',
+        'diecezja' => 'required|string|max:255',
         'imie_opiekuna' => 'required|string|max:255',
         'nazwisko_opiekuna' => 'required|string|max:255',
         'telefon_opiekuna' => 'required|string|max:15',
@@ -116,6 +119,7 @@ class EditStudent extends Component
             'kod_pocztowy' => $this->kod_pocztowy,
             'poczta' => $this->poczta,
             'miejscowosc' => $this->miejscowosc,
+            'diecezja' => $this->diecezja,
             'imie_opiekuna' => $this->imie_opiekuna,
             'nazwisko_opiekuna' => $this->nazwisko_opiekuna,
             'telefon_opiekuna' => $this->telefon_opiekuna,
